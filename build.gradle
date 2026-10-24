@@ -22,6 +22,9 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.46'
     implementation 'net.datafaker:datafaker:2.5.2'
     implementation 'io.appium:java-client:10.1.1'
+    testImplementation 'org.slf4j:slf4j-api:2.0.9'
+    testImplementation 'ch.qos.logback:logback-classic:1.4.11'
+
 }
 
 test {

@@ -6,7 +6,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
 
 public class AppiumConfig {
     public static AppiumDriver createAppiumDriver() {
@@ -18,9 +18,9 @@ public class AppiumConfig {
                 .setAppActivity(getProperty("mobile.properties", "appActivity"));
 
         try {
-            AppiumDriver appiumDriver = new AppiumDriver(new URL
-                    (getProperty("mobile.properties", "appiumUrl")), options);
-            return  appiumDriver;
+            return new AppiumDriver(
+                    URI.create(getProperty("mobile.properties", "appiumUrl")).toURL(),
+                    options);
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

@@ -12,6 +12,7 @@ public class RegistrationScreen extends BaseScreen {
     }
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='com.telran.ilcarro:id/editRegName']")
+//    @AndroidFindBy(id = "com.telran.ilcarro:id/editRegName")
     WebElement inputName;
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='com.telran.ilcarro:id/editRegLastName']")
     WebElement inputLastName;
@@ -33,6 +34,14 @@ public class RegistrationScreen extends BaseScreen {
 
     public void clickBtnRegistration() {
         inputTermsOfUse.click();
+        btnYallaRegistration.click();
+    }
+
+    public void clickCheckBoxAgree() {
+        inputTermsOfUse.click();
+    }
+
+    public void clickBtnYalla() {
         btnYallaRegistration.click();
     }
 

@@ -46,7 +46,7 @@ public class AddNewCarScreen extends BaseScreen {
 //        inputPrice.sendKeys(Double.toString(car.getPricePerDay()));
         inputPrice.sendKeys(car.getPricePerDay() + "");
         inputCarClass.sendKeys(car.getCarClass());
-        inputFuel.sendKeys(car.getFuel());
+        typeFuel(car.getFuel());
         inputYear.sendKeys(car.getYear());
 //        inputSeats.sendKeys(Integer.toString(car.getSeats()));
         inputSeats.sendKeys(car.getSeats() + "");

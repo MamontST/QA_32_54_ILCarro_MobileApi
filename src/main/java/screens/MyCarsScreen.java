@@ -11,8 +11,13 @@ public class MyCarsScreen extends BaseScreen {
 
     @AndroidFindBy(id = "com.telran.ilcarro:id/addCarBtn")
     WebElement btnAddNewCar;
+    @AndroidFindBy(xpath = "//android.widget.Toast[@text='Car was added!']")
+    WebElement messageAddCarSuccess;
 
     public void clickBtnAddNewCar() {
         clickWait(btnAddNewCar);
+    }
+    public boolean validateMessageAddCarSuccess(String text) {
+        return isTextInElementPresent(messageAddCarSuccess, text);
     }
 }

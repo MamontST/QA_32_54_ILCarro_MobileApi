@@ -4,8 +4,8 @@ import dto.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import screens.ErrorScreen;
 import screens.LoginScreen;
-
 import screens.SearchScreen;
 import screens.SplashScreen;
 
@@ -38,5 +38,23 @@ public class LoginTests extends TestBase{
         loginScreen.typeLoginForm(user);
         loginScreen.clickBtnLogin();
         Assert.assertTrue(searchScreen.validateMessageLoginSuccess("Login success!"));
+    }
+
+    @Test
+    public void loginWithWrongPasswordNegativeTest(){
+        user.setPassword("Password123!");
+        log.info("Login user with wrong password: {}", user);
+        loginScreen.typeLoginForm(user);
+        loginScreen.clickBtnLogin();
+        Assert.assertTrue(new ErrorScreen(driver).validateErrorMessage("Login or Password incorrect"));
+    }
+
+    @Test
+    public void loginWithEmptyEmailNegativeTest(){
+        user.setUsername("");
+        log.info("Login user with empty email: {}", user);
+        loginScreen.typeLoginForm(user);
+        loginScreen.clickBtnLogin();
+        Assert.assertTrue(new ErrorScreen(driver).validateErrorMessage("All fields must be filled and agree terms"));
     }
 }

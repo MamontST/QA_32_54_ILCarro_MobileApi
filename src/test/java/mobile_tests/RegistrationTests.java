@@ -41,10 +41,27 @@ public class RegistrationTests extends TestBase{
     @Test
     public void registrationEmptyFieldNameNegativeTest(){
         user.setFirstName("");
-        log.info("Registering user: {}", user);
-
+        log.info("Registering user with empty first name: {}", user);
         registrationScreen.typeRegistrationForm(user);
         registrationScreen.clickCheckBoxAgree();
+        registrationScreen.clickBtnYalla();
+        Assert.assertTrue(new ErrorScreen(driver).validateErrorMessage("All fields must be filled and agree terms"));
+    }
+
+    @Test
+    public void registrationEmptyLastNameNegativeTest(){
+        user.setLastName("");
+        log.info("Registering user with empty last name: {}", user);
+        registrationScreen.typeRegistrationForm(user);
+        registrationScreen.clickCheckBoxAgree();
+        registrationScreen.clickBtnYalla();
+        Assert.assertTrue(new ErrorScreen(driver).validateErrorMessage("All fields must be filled and agree terms"));
+    }
+
+    @Test
+    public void registrationWithoutAgreementNegativeTest(){
+        log.info("Registering user without agreement: {}", user);
+        registrationScreen.typeRegistrationForm(user);
         registrationScreen.clickBtnYalla();
         Assert.assertTrue(new ErrorScreen(driver).validateErrorMessage("All fields must be filled and agree terms"));
     }

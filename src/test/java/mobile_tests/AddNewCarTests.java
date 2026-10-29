@@ -36,7 +36,7 @@ public class AddNewCarTests extends TestBase {
 
     @Test
     public void addNewCarPositiveTest() {
-        addNewCarScreen.typeAddNewCarFrom(car);
+        addNewCarScreen.typeAddNewCarForm(car);
         addNewCarScreen.clickBtnAddCar();
         Assert.assertTrue(new MyCarsScreen(driver).validateMessageAddCarSuccess("Car was added!"));
     }

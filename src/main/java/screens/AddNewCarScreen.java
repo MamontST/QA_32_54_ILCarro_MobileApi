@@ -38,7 +38,7 @@ public class AddNewCarScreen extends BaseScreen {
     @AndroidFindBy(id = "com.telran.ilcarro:id/addCarBtn")
     WebElement btnAddCar;
 
-    public void typeAddNewCarFrom(Car car) {
+    public void typeAddNewCarForm(Car car) {
         inputSerialNumber.sendKeys(car.getSerialNumber());
         inputManufacture.sendKeys(car.getManufacture());
         inputModel.sendKeys(car.getModel());
